@@ -1,0 +1,207 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
+:root {
+  --col-bg: hsl(229, 57%, 11%);
+  --col-pale-blue: hsl(243, 100%, 93%);
+  --col-gray-blue: hsl(229, 7%, 55%);
+  --col-dark-blue: hsl(228, 56%, 26%);
+  --col-very-dark-blue: hsl(229, 57%, 11%);
+  --col-gradient: linear-gradient(
+    to right,
+    #ffa399,
+    #ff9092,
+    #ff7b90,
+    #ff6591,
+    #ff4d97
+  );
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Raleway", sans-serif;
+  background: url(/images/bg-desktop.png) no-repeat;
+  background-size: auto;
+  font-size: 14px;
+  background-color: var(--col-bg);
+  background-position: bottom right;
+}
+
+.fd-section-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fd-div-wrapper {
+  display: flex;
+  width: 800px;
+  align-items: flex-end;
+  flex-direction: row;
+}
+
+.fd-nav-div {
+  width: 350px;
+  padding: 32px;
+  margin: 16px;
+  border-radius: 16px;
+  border-top-right-radius: 100px;
+  background-color: var(--col-dark-blue);
+  height: max-content;
+
+  .fd-brand {
+    margin-bottom: 24px;
+  }
+
+  .fd-nav {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+
+    .fd-nav-item {
+      width: 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--col-very-dark-blue);
+      height: 30px;
+      border-radius: 8px;
+      padding: 8px;
+      margin-right: 16px;
+    }
+  }
+}
+
+.fd-status-div {
+  width: 550px;
+  margin: 16px;
+  padding: 30px;
+  color: var(--col-pale-blue);
+  border-radius: 16px;
+  background-color: var(--col-dark-blue);
+  height: 90px;
+  font-weight: 400;
+  span {
+    font-weight: 700;
+  }
+
+  .fd-status-bar {
+    margin-top: 16px;
+    background-color: var(--col-very-dark-blue);
+    height: 18px;
+    border-radius: 25px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    .fd-status-tooltip {
+      position: absolute;
+      right: 0;
+      font-size: 32px;
+      padding: 16px;
+      font-weight: 700;
+      border-radius: 16px;
+      background-color: white;
+      color: var(--col-very-dark-blue);
+      transform: translateY(-75px);
+      display: flex;
+      border-bottom-right-radius: 0px;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      span {
+        margin-left: 8px;
+        font-size: 12px;
+        opacity: 60%;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        right: 0px;
+        bottom: -20px;
+        border: solid 20px;
+        border-right-color: white;
+        border-top-color: transparent;
+        border-left-color: transparent;
+        border-bottom-color: transparent;
+      }
+    }
+
+    .fd-status-indicator {
+      width: 75%;
+      height: 16px;
+      border-radius: 25px;
+      background-image: var(--col-gradient);
+      position: relative;
+      &::after {
+        content: "";
+        right: 3px;
+        top: 3px;
+        border-radius: 50%;
+        width: 10px;
+        height: 10px;
+        background: var(--col-pale-blue);
+        position: absolute;
+      }
+    }
+  }
+
+  .fd-status-space-indicator {
+    margin-top: 4px;
+    font-weight: 400;
+    font-size: 12px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  html,
+  body {
+    background: url(/images/bg-mobile.png) no-repeat;
+    background-size: cover;
+  }
+
+  .fd-div-wrapper {
+    width: 100%;
+    margin: 32px;
+    flex-direction: column;
+    box-sizing: border-box;
+    .fd-nav-div {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .fd-status-div {
+      width: 100%;
+      height: 160px;
+      box-sizing: border-box;
+
+      .fd-status-bar {
+        .fd-status-tooltip {
+          border-radius: 16px;
+          bottom: -180px;
+          left: 0;
+          right: 0;
+          margin-left: auto;
+          margin-right: auto;
+          width: max-content;
+          padding: 16px;
+          &::after {
+            content: none;
+          }
+        }
+      }
+    }
+  }
+}
